@@ -16,6 +16,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -142,8 +143,17 @@ fun WeatherDetails(data : WeatherModel){
             textAlign = TextAlign.Center,
             color = Color.Gray
         )
-        Spacer(modifier = Modifier.height(16.dp))
-        Card {
+        Spacer(modifier = Modifier.height(8.dp))
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            colors = CardDefaults.cardColors(
+            containerColor = Color.White // Set your desired background color here
+        ),
+            elevation = CardDefaults.cardElevation(
+                defaultElevation = 4.dp // Optional elevation
+            )) {
             Column(
                 modifier = Modifier.fillMaxWidth()
             ) {
@@ -156,6 +166,7 @@ fun WeatherDetails(data : WeatherModel){
 
                 }
                 Row (
+
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceAround
                 ){
@@ -171,6 +182,7 @@ fun WeatherDetails(data : WeatherModel){
                     Weatherkeyval("Date",data.location.localtime.split(" ")[0])
 
                 }
+                Spacer(modifier = Modifier.width(8.dp))
             }
         }
     }
